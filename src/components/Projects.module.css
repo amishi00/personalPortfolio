@@ -1,188 +1,84 @@
-.header {
-  margin-bottom: 52px;
-}
-
+/* ── Project grid ── */
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
 }
 
 .card {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 24px;
+  color: inherit;
+  display: block;
+  text-align: left;
   cursor: pointer;
-  transition: all var(--transition);
-  position: relative;
-  overflow: hidden;
-  text-decoration: none;
+  width: 100%;
+  font-family: inherit;
+  background: none;
+  border: none;
+  padding: 0;
 }
 
-.card::before {
-  content: '';
+.artImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+  pointer-events: none;
+  display: block;
+}
+
+.artBadge {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: var(--card-accent, var(--accent-primary));
-  opacity: 0;
-  transition: opacity var(--transition);
-}
-
-.card:hover {
-  border-color: var(--border-hover);
-  background: var(--bg-card-hover);
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
-}
-
-.card:hover::before {
-  opacity: 1;
-}
-
-.cardTop {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 6px;
-}
-
-.cardIcon {
-  width: 36px;
-  height: 36px;
-  border-radius: var(--radius-sm);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.arrow {
-  color: var(--text-muted);
-  transition: color var(--transition), transform var(--transition);
-  flex-shrink: 0;
-}
-
-.card:hover .arrow {
-  color: var(--text-primary);
-  transform: translate(2px, -2px);
-}
-
-.badge {
-  align-self: flex-start;
-}
-
-.category {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-.title {
-  font-size: 1.05rem;
+  top: 8px;
+  right: 8px;
+  font-size: 0.65rem;
   font-weight: 700;
-  color: var(--text-primary);
-  line-height: 1.3;
+  background: rgba(0, 0, 0, 0.65);
+  color: var(--sp-green);
+  padding: 2px 8px;
+  border-radius: 100px;
+  backdrop-filter: blur(4px);
 }
 
-.desc {
-  font-size: 0.83rem;
-  color: var(--text-secondary);
-  line-height: 1.7;
-  flex: 1;
-}
-
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 4px;
-}
-
-.showMore {
-  display: flex;
-  justify-content: center;
-  margin-top: 36px;
-}
-
-/* Research */
-.researchSection {
-  margin-top: 80px;
-}
-
-.researchHeading {
-  font-size: 1.4rem;
-  font-weight: 800;
-  color: var(--text-primary);
-  margin-bottom: 28px;
-}
-
+/* ── Research grid ── */
 .researchGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
 }
 
 .researchCard {
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  width: 100%;
+  font-family: inherit;
+  border: none;
+  outline: none;
+}
+
+.researchArt {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  background: #282828;
+}
+
+.researchText {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 24px;
-  cursor: pointer;
-  transition: all var(--transition);
-  text-decoration: none;
+  gap: 4px;
 }
 
-.researchCard:hover {
-  border-color: rgba(6, 182, 212, 0.4);
-  background: var(--bg-card-hover);
-  transform: translateY(-3px);
+.researchArrow {
+  display: none;
 }
 
-.researchTop {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+@media (max-width: 900px) {
+  .grid { grid-template-columns: repeat(4, 1fr); }
 }
-
-.researchIcon {
-  font-size: 1.4rem;
-}
-
-.researchOrg {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--accent-secondary);
-  font-weight: 500;
-}
-
-.researchTitle {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  line-height: 1.35;
-}
-
-@media (max-width: 1000px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 680px) {
-  .grid,
-  .researchGrid {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 600px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+  .researchGrid { grid-template-columns: 1fr; }
 }

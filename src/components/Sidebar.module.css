@@ -1,0 +1,130 @@
+.sidebar {
+  grid-area: sidebar;
+  background: var(--sp-black);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 16px;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 24px 16px 18px;
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: var(--sp-text);
+  letter-spacing: -0.5px;
+  transition: opacity var(--tr);
+}
+.logo:hover { opacity: 0.85; }
+
+/* Main nav */
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 0 8px;
+  margin-bottom: 24px;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 8px;
+  border-radius: var(--radius);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--sp-subtext);
+  transition: color var(--tr), background var(--tr);
+}
+.navItem:hover {
+  color: var(--sp-text);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.navIcon {
+  flex-shrink: 0;
+  display: flex;
+}
+
+/* Library */
+.library {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: var(--radius);
+  margin: 0 8px;
+  overflow: hidden;
+}
+
+.libraryHeader {
+  padding: 12px 12px 8px;
+}
+
+.libraryTitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--sp-subtext);
+  transition: color var(--tr);
+}
+.libraryTitle:hover { color: var(--sp-text); }
+
+.libraryList {
+  display: flex;
+  flex-direction: column;
+  padding: 4px 4px;
+}
+
+.libItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 8px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background var(--tr);
+  color: inherit;
+  text-decoration: none;
+}
+.libItem:hover { background: rgba(255, 255, 255, 0.07); }
+
+.libArt {
+  width: 44px;
+  height: 44px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.libIcon { font-size: 1.2rem; }
+
+.libInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.libName {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--sp-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.libSub {
+  font-size: 0.75rem;
+  color: var(--sp-subtext);
+}

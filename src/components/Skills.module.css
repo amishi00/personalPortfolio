@@ -1,104 +1,157 @@
 .header {
-  margin-bottom: 60px;
+  margin-bottom: 20px;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: start;
+.table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-/* Skill bars */
-.bars {
+.thead tr {
+  border-bottom: 1px solid var(--sp-border);
+}
+
+.thead th {
+  padding: 4px 16px 8px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--sp-subtext);
+  text-align: left;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.thNum { width: 48px; text-align: center; padding-left: 16px; }
+.thAlbum { display: none; }
+.thDuration { width: 60px; text-align: right; padding-right: 16px; }
+
+@media (min-width: 800px) {
+  .thAlbum { display: table-cell; }
+}
+
+/* Rows */
+.row {
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background var(--tr);
+}
+.row:hover { background: rgba(255, 255, 255, 0.07); }
+.activeRow { background: rgba(255, 255, 255, 0.05); }
+
+.tdNum {
+  padding: 10px 16px;
+  text-align: center;
+  width: 48px;
+}
+
+.num {
+  font-size: 0.9rem;
+  color: var(--sp-subtext);
+  font-variant-numeric: tabular-nums;
+}
+.numGreen { color: var(--sp-green); }
+
+.rowPlay {
+  background: none;
+  border: none;
+  color: var(--sp-text);
+  cursor: pointer;
   display: flex;
-  flex-direction: column;
-  gap: 28px;
-}
-
-.skillRow {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.skillMeta {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  margin: 0 auto;
 }
 
-.skillName {
+/* Title cell */
+.tdTitle { padding: 8px 16px; }
+
+.titleCell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.trackArt {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  background: linear-gradient(135deg, #282828, #3a3a3a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.trackName {
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--sp-text);
+  white-space: nowrap;
+  margin-bottom: 3px;
 }
+.trackGreen { color: var(--sp-green); }
 
-.skillPct {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-}
-
-.track {
-  height: 6px;
-  background: rgba(255, 255, 255, 0.06);
-  border-radius: 100px;
+.trackSub {
+  font-size: 0.77rem;
+  color: var(--sp-subtext);
+  white-space: nowrap;
   overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 280px;
 }
 
-.fill {
-  height: 100%;
-  border-radius: 100px;
-  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+/* Mini viz column */
+.tdAlbum {
+  padding: 10px 16px;
+  display: none;
+}
+@media (min-width: 800px) {
+  .tdAlbum { display: table-cell; }
 }
 
-/* Category cards */
-.categories {
+.miniViz {
   display: flex;
-  flex-direction: column;
-  gap: 16px;
+  align-items: flex-end;
+  gap: 2px;
+  height: 20px;
+}
+.miniBar {
+  width: 3px;
+  border-radius: 1px;
+  transition: background var(--tr);
 }
 
-.catCard {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 20px 24px;
-  transition: all var(--transition);
+/* Duration */
+.tdDuration {
+  padding: 10px 16px;
+  text-align: right;
+  font-size: 0.82rem;
+  color: var(--sp-subtext);
+  font-variant-numeric: tabular-nums;
 }
 
-.catCard:hover {
-  border-color: var(--border-hover);
-  background: var(--bg-card-hover);
-}
-
-.catHeader {
+/* Visualizer */
+.viz {
   display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 14px;
+  align-items: flex-end;
+  gap: 1.5px;
+  height: 16px;
+  width: 20px;
 }
 
-.catIcon {
-  font-size: 1.1rem;
+.bar {
+  width: 2.5px;
+  border-radius: 1px;
+  transition: background var(--tr);
 }
 
-.catTitle {
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: var(--text-primary);
+.barAnim {
+  animation: bounce 0.8s ease-in-out infinite alternate;
 }
 
-.tagList {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-@media (max-width: 900px) {
-  .grid {
-    grid-template-columns: 1fr;
-    gap: 48px;
-  }
+@keyframes bounce {
+  from { transform: scaleY(0.4); }
+  to { transform: scaleY(1); }
 }

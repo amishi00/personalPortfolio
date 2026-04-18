@@ -1,201 +1,184 @@
 import { useState } from 'react'
 import styles from './Projects.module.css'
+import ProjectModal from './ProjectModal'
 
-const all = [
+import seniorsurf from '../assets/portfolio/seniorsurf.png'
+import culearn from '../assets/portfolio/CULearn.png'
+import shemoney from '../assets/portfolio/sheMoney.png'
+import mindfulminute from '../assets/portfolio/mindfulminute.png'
+import mammogram from '../assets/portfolio/mammogram.png'
+import ar3d from '../assets/portfolio/ar3d.jpg'
+import connect4 from '../assets/portfolio/connect4.png'
+import simplisavings from '../assets/portfolio/simplisavings.png'
+import dyslexia from '../assets/portfolio/dyslexia.png'
+import hemophilia from '../assets/portfolio/hemophilia.png'
+import triples from '../assets/portfolio/exploringtriples.png'
+
+const projects = [
   {
     title: 'SeniorSurf',
     category: 'AI · Web Extension',
-    description: 'Chrome extension helping elderly users navigate websites using Gemini AI. Presented at HackMIT 2024.',
-    tags: ['HTML/CSS/JS', 'Python', 'Flask', 'Gemini AI'],
+    desc: 'A Chrome extension that helps elderly users navigate websites using Gemini AI. Uses DOM manipulation to simplify and explain web content in real time. Presented at HackMIT 2024.',
+    tags: ['HTML/CSS/JS', 'Python', 'Flask', 'Gemini AI', 'DOM API'],
+    img: seniorsurf,
     link: 'https://github.com/amishi00/seniorSurf',
-    highlight: '🏆 HackMIT 2024',
-    color: '#7c3aed',
+    badge: '🏆 HackMIT 2024',
   },
   {
     title: 'CULearn',
     category: 'iOS App',
-    description: 'iOS tutoring platform connecting Cornell students as tutors and tutees. Winner of Most Creative at Cornell AppDev\'s Hack Challenge.',
-    tags: ['Swift', 'iOS', 'UI/UX'],
+    desc: 'An iOS tutoring marketplace connecting Cornell students as tutors and tutees, with scheduling, profiles, and in-app messaging. Won Most Creative at Cornell AppDev\'s Hack Challenge.',
+    tags: ['Swift', 'SwiftUI', 'iOS', 'UI/UX'],
+    img: culearn,
     link: 'https://github.com/amishi00/CULearn',
-    highlight: '🏆 Most Creative, Cornell',
-    color: '#06b6d4',
+    badge: '🏆 Most Creative, Cornell',
   },
   {
     title: 'SheMoney',
     category: 'iOS · FinTech',
-    description: 'iOS Financial Literacy App with point-based savings incentives and pay gap analysis to promote gender financial equality.',
-    tags: ['iOS', 'Swift', 'ML', 'Finance'],
+    desc: 'An iOS financial literacy app with point-based savings incentives and a pay gap analysis feature. Designed to promote gender financial equality through education and gamification.',
+    tags: ['Swift', 'SwiftUI', 'iOS', 'ML', 'Finance'],
+    img: shemoney,
     link: 'https://github.com/amishi00/sheMoney',
-    color: '#ec4899',
   },
   {
     title: 'Mindful Minute',
     category: 'Web · Mental Health',
-    description: 'Mental health assessment tool diagnosing conditions via survey responses using NLP. First place at UniHacks 2023 Mental Health Track.',
-    tags: ['Web', 'NLP', 'Mental Health'],
+    desc: 'A mental health assessment tool that diagnoses conditions via survey responses using NLP. Built to make mental health screening more accessible. First place at UniHacks 2023 Mental Health Track.',
+    tags: ['Web', 'NLP', 'JavaScript', 'Mental Health'],
+    img: mindfulminute,
     link: 'https://mindfulminuteaia.wixsite.com/mindful-minute',
-    highlight: '🥇 1st Place, UniHacks 2023',
-    color: '#10b981',
+    badge: '🥇 1st Place, UniHacks 2023',
   },
   {
-    title: 'Breast Cancer Prediction',
+    title: 'Breast Cancer CNN',
     category: 'ML · Healthcare',
-    description: 'Binary detection of breast cancer in mammograms using a Convolutional Neural Network (CNN) for early diagnosis.',
-    tags: ['Python', 'CNN', 'TensorFlow', 'Healthcare'],
+    desc: 'Binary detection of breast cancer in mammograms using a Convolutional Neural Network. Trained on labeled mammogram datasets to assist with early diagnosis.',
+    tags: ['Python', 'CNN', 'TensorFlow', 'Healthcare', 'Computer Vision'],
+    img: mammogram,
     link: 'https://github.com/amishi00/BreastCancerMammogram',
-    color: '#f59e0b',
   },
   {
-    title: 'AR 3D Try-On Dresses',
+    title: 'AR 3D Try-On',
     category: 'AR/VR · iOS',
-    description: 'Real-time virtual dress fitting application built as an intern at Echo3D using SwiftUI and AR technologies.',
-    tags: ['SwiftUI', 'AR', 'Echo3D API', 'iOS'],
+    desc: 'A real-time virtual dress fitting application built during my Echo3D internship. Uses augmented reality to overlay 3D clothing models onto the user via their iPhone camera.',
+    tags: ['SwiftUI', 'ARKit', 'Echo3D API', 'iOS', '3D Rendering'],
+    img: ar3d,
     link: 'https://github.com/amishi00',
-    color: '#7c3aed',
   },
   {
     title: 'Connect4 in OCaml',
     category: 'Game · AI',
-    description: 'Connect 4 game with multiplayer mode and AI opponent using the minimax algorithm, implemented in OCaml.',
-    tags: ['OCaml', 'Minimax', 'Game AI'],
+    desc: 'A fully functional Connect 4 game implemented in OCaml, featuring both local multiplayer and an AI opponent powered by the minimax algorithm with alpha-beta pruning.',
+    tags: ['OCaml', 'Minimax', 'Alpha-Beta Pruning', 'Functional Programming'],
+    img: connect4,
     link: 'https://github.com/amishi00/OCamlConnect4',
-    color: '#06b6d4',
   },
   {
     title: 'Simpli Savings',
     category: 'Web · Sustainability',
-    description: 'Platform that rewards users for reducing electricity consumption, promoting sustainable energy habits.',
-    tags: ['Web', 'Sustainability', 'JavaScript'],
+    desc: 'A web platform that rewards users for reducing their electricity consumption. Tracks energy usage and provides incentives to build sustainable habits.',
+    tags: ['JavaScript', 'Web', 'Sustainability', 'Data Viz'],
+    img: simplisavings,
     link: 'https://github.com/amishi00/SimpliSavings',
-    color: '#10b981',
   },
   {
     title: 'Dyslexia Detection',
     category: 'ML · Healthcare',
-    description: 'Machine learning model analyzing handwriting images to detect dyslexia, achieving 89.4% validation accuracy at MIT Medlytics.',
-    tags: ['Python', 'ML', 'Computer Vision'],
+    desc: 'A machine learning model that analyzes handwriting images to detect markers of dyslexia. Achieved 89.4% validation accuracy at MIT Beaver Works Medlytics program.',
+    tags: ['Python', 'ML', 'Computer Vision', 'Healthcare', 'Image Classification'],
+    img: dyslexia,
     link: 'https://github.com/amishi00',
-    highlight: '89.4% Accuracy',
-    color: '#f59e0b',
+    badge: '89.4% Accuracy',
+  },
+  {
+    title: 'StartupMatch',
+    category: 'Information Retrieval · Full-Stack',
+    desc: 'An information retrieval system that helps students find early-stage startups whose hiring needs match their technical skills and interests. Users submit free-form skill queries or upload resume skills, and the system returns a ranked list of YC-backed, Series A, or Series B startups. Aggregates startup data from multiple sources into one searchable platform, reducing the need to manually browse job boards. Uses SVD and TF-IDF for retrieval and RAG (LLMs) to suggest startups based on user queries.',
+    tags: ['Python', 'SVD', 'TF-IDF', 'RAG', 'LLMs', 'Information Retrieval', 'React', 'Flask'],
+    img: null,
+    emoji: '🚀',
+    color: '#6366f1',
+    link: 'https://github.com/wsonja/Startup-Match',
   },
 ]
 
 const research = [
   {
-    title: 'Factor-VIII Gene Expression Research',
-    org: 'UNC Chapel Hill Gene Therapy Center',
-    description: 'Testing gene variants to maximize Factor-VIII protein expression for hemophilia treatment using gel electrophoresis and cellular cloning.',
+    title: 'Factor-VIII Gene Expression',
+    category: 'Bioengineering · Gene Therapy',
+    desc: 'Testing gene variants to maximize Factor-VIII protein expression for hemophilia treatment. Conducted at UNC Chapel Hill Gene Therapy Center using gel electrophoresis and cellular cloning.',
+    tags: ['Gene Therapy', 'Hemophilia', 'Gel Electrophoresis', 'Molecular Biology'],
+    img: hemophilia,
     link: 'https://drive.google.com/file/d/1BVJeD6bVC59eqAOo8DWGjl9AHn_EPRD_/view',
-    tags: ['Gene Therapy', 'Hemophilia', 'Lab Research'],
+    linkLabel: 'View Paper',
+    sub: 'UNC Chapel Hill Gene Therapy Center',
   },
   {
-    title: 'Exploring Pythagorean Triples',
-    org: 'Published in The American Math Monthly',
-    description: 'Mathematical research proving that infinitely many "very good" Pythagorean triples exist. Earned 3rd place at NCSEF Region 3B.',
+    title: 'Pythagorean Triples',
+    category: 'Mathematics · Number Theory',
+    desc: 'Mathematical research proving that infinitely many "very good" Pythagorean triples exist. Earned 3rd place at NCSEF Region 3B and was published in The American Math Monthly.',
+    tags: ['Number Theory', 'Proof Writing', 'Combinatorics'],
+    img: triples,
     link: 'https://drive.google.com/file/d/1rhnJsmX_MwrULcICBR26ZmtoWVvSAJ6B/view',
-    tags: ['Mathematics', 'Number Theory', 'Research'],
-    highlight: '3rd Place, NCSEF',
+    linkLabel: 'View Paper',
+    sub: 'Published · The American Math Monthly',
+    badge: '3rd Place NCSEF',
   },
 ]
 
 export default function Projects() {
-  const [showAll, setShowAll] = useState(false)
-  const visible = showAll ? all : all.slice(0, 6)
+  const [selected, setSelected] = useState(null)
 
   return (
-    <section id="projects">
-      <div className="container">
-        <div className={styles.header}>
-          <p className="section-label">Projects & Research</p>
-          <h2 className="section-title">Things I've built</h2>
-          <p className="section-subtitle">
-            A selection of projects spanning ML, mobile, web, and AR — many built at hackathons or internships.
-          </p>
-        </div>
-
-        <div className={styles.grid}>
-          {visible.map((p) => (
-            <a
-              key={p.title}
-              href={p.link}
-              target="_blank"
-              rel="noreferrer"
-              className={styles.card}
-              style={{ '--card-accent': p.color }}
-            >
-              <div className={styles.cardTop}>
-                <div className={styles.cardIcon} style={{ background: `${p.color}20`, border: `1px solid ${p.color}40` }}>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={p.color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
-                  </svg>
-                </div>
-                <svg className={styles.arrow} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
-                </svg>
-              </div>
-
-              {p.highlight && (
-                <span className={`tag green ${styles.badge}`}>{p.highlight}</span>
-              )}
-
-              <p className={styles.category}>{p.category}</p>
-              <h3 className={styles.title}>{p.title}</h3>
-              <p className={styles.desc}>{p.description}</p>
-
-              <div className={styles.tags}>
-                {p.tags.map((t) => (
-                  <span key={t} className="tag">{t}</span>
-                ))}
-              </div>
-            </a>
-          ))}
-        </div>
-
-        {!showAll && all.length > 6 && (
-          <div className={styles.showMore}>
-            <button className="btn btn-ghost" onClick={() => setShowAll(true)}>
-              Show {all.length - 6} more projects
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/>
-              </svg>
-            </button>
-          </div>
-        )}
-
-        {/* Research section */}
-        <div className={styles.researchSection}>
-          <h3 className={styles.researchHeading}>Research & Papers</h3>
-          <div className={styles.researchGrid}>
-            {research.map((r) => (
-              <a
-                key={r.title}
-                href={r.link}
-                target="_blank"
-                rel="noreferrer"
-                className={styles.researchCard}
-              >
-                <div className={styles.researchTop}>
-                  <span className={styles.researchIcon}>📄</span>
-                  <svg className={styles.arrow} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
-                  </svg>
-                </div>
-                {r.highlight && (
-                  <span className={`tag green ${styles.badge}`}>{r.highlight}</span>
-                )}
-                <p className={styles.researchOrg}>{r.org}</p>
-                <h4 className={styles.researchTitle}>{r.title}</h4>
-                <p className={styles.desc}>{r.description}</p>
-                <div className={styles.tags}>
-                  {r.tags.map((t) => (
-                    <span key={t} className="tag teal">{t}</span>
-                  ))}
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
+    <section id="projects" className="sp-section">
+      <div className="sp-section-header">
+        <h2 className="sp-section-title">Projects</h2>
+        <a href="https://github.com/amishi00" target="_blank" rel="noreferrer" className="sp-see-all">See all on GitHub</a>
       </div>
+
+      <div className={styles.grid}>
+        {projects.map((p) => (
+          <button key={p.title} className={`sp-card ${styles.card}`} onClick={() => setSelected(p)}>
+            <div className="sp-art" style={!p.img ? { background: `linear-gradient(135deg, ${p.color}55, ${p.color}18)` } : undefined}>
+              {p.img
+                ? <img src={p.img} alt={p.title} className={styles.artImg} />
+                : <span style={{ fontSize: '2.4rem' }}>{p.emoji}</span>
+              }
+              {p.badge && <div className={styles.artBadge}>{p.badge}</div>}
+              <span className="sp-play-btn" aria-hidden>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5,3 19,12 5,21"/>
+                </svg>
+              </span>
+            </div>
+            <div className="sp-card-title">{p.title}</div>
+            <div className="sp-card-sub">{p.category}</div>
+          </button>
+        ))}
+      </div>
+
+      {/* Research */}
+      <div className="sp-section-header" style={{ marginTop: 48 }}>
+        <h2 className="sp-section-title">Research & Papers</h2>
+      </div>
+
+      <div className={styles.researchGrid}>
+        {research.map((r) => (
+          <button key={r.title} className={`sp-card ${styles.researchCard}`} onClick={() => setSelected(r)}>
+            <div className={styles.researchArt}>
+              <img src={r.img} alt={r.title} className={styles.artImg} />
+            </div>
+            <div className={styles.researchText}>
+              <div className="sp-card-title">{r.title}</div>
+              <div className="sp-card-sub">{r.sub}</div>
+              {r.badge && <span className="sp-tag" style={{ marginTop: 8, display: 'inline-flex', background: 'rgba(29,185,84,0.12)', color: 'var(--sp-green)' }}>{r.badge}</span>}
+            </div>
+          </button>
+        ))}
+      </div>
+
+      {selected && <ProjectModal project={selected} onClose={() => setSelected(null)} />}
     </section>
   )
 }

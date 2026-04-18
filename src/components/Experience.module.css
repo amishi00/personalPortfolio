@@ -1,166 +1,143 @@
-.section {
-  background: var(--bg-secondary);
-}
-
-.header {
-  margin-bottom: 60px;
-}
-
-.layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: start;
-}
-
-.subheading {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 28px;
-}
-
-.subheadingMargin {
-  margin-top: 48px;
-}
-
-/* Timeline */
 .timeline {
   display: flex;
   flex-direction: column;
   gap: 0;
-  position: relative;
-  padding-left: 28px;
-  border-left: 1px solid var(--border);
 }
 
 .item {
+  display: grid;
+  grid-template-columns: 48px 24px 1fr;
+  gap: 0 16px;
   position: relative;
-  padding-bottom: 32px;
 }
 
-.item:last-child {
-  padding-bottom: 0;
+/* Year column */
+.left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-top: 18px;
+}
+
+.year {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--sp-subtext);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.line {
+  flex: 1;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin-top: 8px;
+  align-self: stretch;
+  margin-right: -1px;
+}
+
+/* Dot column */
+.dotWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 18px;
 }
 
 .dot {
-  position: absolute;
-  left: -34px;
-  top: 4px;
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  border: 2px solid var(--bg-secondary);
-  box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.3);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
 }
 
+/* Card */
 .card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+  background: var(--sp-card);
   border-radius: var(--radius);
-  padding: 20px 22px;
-  transition: all var(--transition);
+  padding: 16px 18px;
+  margin-bottom: 12px;
+  transition: background var(--tr);
 }
+.card:hover { background: var(--sp-card-hover); }
 
-.card:hover {
-  border-color: var(--border-hover);
-  background: var(--bg-card-hover);
-  transform: translateX(4px);
-}
-
-.meta {
+.cardTop {
   display: flex;
-  gap: 12px;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+
+.artSmall {
+  width: 48px;
+  height: 48px;
+  border-radius: 6px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cardMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.typeRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
   flex-wrap: wrap;
-  margin-bottom: 8px;
 }
 
-.period {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--accent-secondary);
-  font-weight: 500;
-}
-
-.location {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--text-muted);
+.typeBadge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 .role {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 3px;
+  color: var(--sp-text);
+  line-height: 1.3;
 }
 
 .org {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 600;
-  color: var(--accent-primary);
-  margin-bottom: 10px;
-  color: #a78bfa;
+}
+
+.period {
+  font-size: 0.75rem;
+  color: var(--sp-subtext);
+  font-family: var(--font-mono, monospace);
 }
 
 .desc {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  line-height: 1.7;
-  margin-bottom: 14px;
+  font-size: 0.82rem;
+  color: var(--sp-subtext);
+  line-height: 1.65;
+  margin-bottom: 12px;
 }
 
 .tags {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-}
-
-/* Extracurriculars */
-.extraGrid {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.extraCard {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 14px 18px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  transition: all var(--transition);
-}
-
-.extraCard:hover {
-  border-color: var(--border-hover);
-  background: var(--bg-card-hover);
-}
-
-.extraIcon {
-  font-size: 1.2rem;
-  flex-shrink: 0;
-}
-
-.extraTitle {
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 2px;
-}
-
-.extraOrg {
-  font-size: 0.78rem;
-  color: var(--text-secondary);
-}
-
-@media (max-width: 900px) {
-  .layout {
-    grid-template-columns: 1fr;
-    gap: 48px;
-  }
 }

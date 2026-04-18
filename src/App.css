@@ -1,1 +1,25 @@
-/* App-level styles are handled in index.css and component modules */
+.app {
+  display: grid;
+  grid-template-areas:
+    "sidebar main"
+    "player  player";
+  grid-template-columns: var(--sidebar-width) 1fr;
+  grid-template-rows: 1fr var(--player-height);
+  height: 100vh;
+  background: var(--sp-black);
+  padding: 8px 8px 0;
+  gap: 8px;
+}
+
+.mainPanel {
+  grid-area: main;
+  background: var(--sp-bg);
+  border-radius: var(--radius);
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.mainContent {
+  padding: 0 24px 80px;
+}

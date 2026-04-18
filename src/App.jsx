@@ -1,28 +1,35 @@
+import { useState } from 'react'
 import './App.css'
-import Navbar from './components/Navbar'
+import Sidebar from './components/Sidebar'
+import Player from './components/Player'
 import Hero from './components/Hero'
 import About from './components/About'
 import Skills from './components/Skills'
 import Experience from './components/Experience'
+import Education from './components/Education'
 import Projects from './components/Projects'
 import Contact from './components/Contact'
-import Footer from './components/Footer'
 
-function App() {
+export default function App() {
+  const [playing, setPlaying] = useState(false)
+
   return (
-    <>
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Experience />
-        <Projects />
-        <Contact />
+    <div className="app">
+      <Sidebar />
+
+      <main className="mainPanel" id="mainPanel">
+        <Hero playing={playing} setPlaying={setPlaying} />
+        <div className="mainContent">
+          <About />
+          <Skills />
+          <Experience />
+          <Education />
+          <Projects />
+          <Contact />
+        </div>
       </main>
-      <Footer />
-    </>
+
+      <Player playing={playing} setPlaying={setPlaying} />
+    </div>
   )
 }
-
-export default App

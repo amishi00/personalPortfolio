@@ -1,95 +1,62 @@
 import styles from './About.module.css'
 
-const stats = [
-  { value: '2+', label: 'Years of Experience' },
-  { value: '10+', label: 'Projects Built' },
-  { value: '2', label: 'Internships' },
-  { value: '1st', label: 'Place, UniHacks 2023' },
-]
+// const extras = [
+//   { icon: '🔬', title: 'Student Researcher', org: 'Cornell ORIE — Prof. Ziv Scully' },
+//   { icon: '🔑', title: 'VP of New Member Education', org: 'Kappa Theta Pi' },
+//   { icon: '💃', title: 'Treasurer', org: 'Cornell Nazaqat Dance Club' },
+//   { icon: '🤖', title: 'Object Detection (YOLOv8 + ROS)', org: 'Cornell Nexus' },
+// ]
 
 export default function About() {
   return (
-    <section id="about" className={styles.about}>
-      <div className="container">
-        <div className={styles.grid}>
-          <div className={styles.left}>
-            <p className="section-label">About Me</p>
-            <h2 className="section-title">
-              Building with purpose,<br />
-              <span className="gradient-text">learning with passion</span>
-            </h2>
-            <p className={styles.text}>
-              I'm Amishi Gupta, a Computer Science student at Cornell University with a minor in
-              AI & Business. I'm driven by a desire to create software that solves real-world
-              problems — from improving healthcare outcomes to promoting sustainability.
-            </p>
-            <p className={styles.text}>
-              My work spans full-stack development, machine learning, and AR/VR — I love
-              exploring the intersection of technology and human impact. Whether it's building
-              an Amazon console or winning a hackathon, I bring curiosity and focus to everything I do.
-            </p>
-            <div className={styles.highlights}>
-              <div className={styles.highlight}>
-                <span className={styles.icon}>🎓</span>
-                <div>
-                  <strong>Cornell University</strong>
-                  <p>BS Computer Science, Minor in AI & Business</p>
-                </div>
-              </div>
-              <div className={styles.highlight}>
-                <span className={styles.icon}>📍</span>
-                <div>
-                  <strong>Based in Ithaca, NY</strong>
-                  <p>Open to remote & in-person roles</p>
-                </div>
-              </div>
-              <div className={styles.highlight}>
-                <span className={styles.icon}>📧</span>
-                <div>
-                  <strong>amishigupta2809@gmail.com</strong>
-                  <p>Always open to chat</p>
-                </div>
-              </div>
-            </div>
+    <section id="about" className="sp-section">
+      <div className="sp-section-header">
+        <h2 className="sp-section-title">About</h2>
+      </div>
+
+      <div className={styles.card}>
+        {/* Big about banner — placeholder for a background photo */}
+        <div className={styles.banner}>
+          <span className={styles.bannerPlaceholder}>Add a banner photo</span>
+        </div>
+
+        <div className={styles.body}>
+          <div className={styles.listeners}>
+            {/* <span className={styles.num}>10+</span>
+            <span className={styles.numLabel}>projects shipped</span>
+            <span className={styles.sep}>·</span>
+            <span className={styles.num}>2</span>
+            <span className={styles.numLabel}>internships</span>
+            <span className={styles.sep}>·</span>
+            <span className={styles.num}>2</span>
+            <span className={styles.numLabel}>research papers</span> */}
           </div>
 
-          <div className={styles.right}>
-            <div className={styles.statsGrid}>
-              {stats.map((s) => (
-                <div key={s.label} className={styles.statCard}>
-                  <span className={styles.statValue}>{s.value}</span>
-                  <span className={styles.statLabel}>{s.label}</span>
-                </div>
-              ))}
-            </div>
+          <p className={styles.bio}>
+            I'm a Computer Science student at Cornell University (BS '27) with a minor in AI & Business,
+            driven by a passion to build software that solves real problems. From detecting dyslexia with
+            ML to building full-stack AWS consoles at Amazon, I thrive at the intersection of
+            technology and human impact.
+          </p>
 
-            <div className={styles.card}>
-              <div className={styles.cardHeader}>
-                <div className={`${styles.dot} ${styles.red}`} />
-                <div className={`${styles.dot} ${styles.yellow}`} />
-                <div className={`${styles.dot} ${styles.green}`} />
-                <span className={styles.cardTitle}>amishi.config.js</span>
+          <p className={styles.bio}>
+            My work spans healthcare, sustainability, fintech, and AR/VR — I love exploring unexpected
+            places where code can make a difference. When I'm not shipping, I'm teaching math,
+            leading KTP, or publishing research in math journals.
+          </p>
+
+          {/* <div className={styles.extrasTitle}>On Stage & Off</div>
+          <div className={styles.extras}>
+            {extras.map((e) => (
+              <div key={e.title} className={styles.extraItem}>
+                <span className={styles.extraIcon}>{e.icon}</span>
+                <div>
+                  <div className={styles.extraTitle}>{e.title}</div>
+                  <div className={styles.extraOrg}>{e.org}</div>
+                </div>
               </div>
-              <pre className={styles.code}>{`const amishi = {
-  roles: [
-    "Software Engineer",
-    "Data Analyst",
-    "ML Enthusiast",
-  ],
-  education: "Cornell CS '27",
-  interests: [
-    "Healthcare Tech",
-    "Sustainability",
-    "AR/VR",
-  ],
-  awards: [
-    "Best Team Initiative @ MIT",
-    "1st Place UniHacks 2023",
-    "Most Creative @ Cornell",
-  ],
-}`}</pre>
-            </div>
-          </div>
+            ))} */}
+          {/* </div> */}
         </div>
       </div>
     </section>

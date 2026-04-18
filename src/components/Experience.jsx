@@ -1,142 +1,129 @@
 import styles from './Experience.module.css'
+import googleLogo from '../assets/google.png'
+import amazonLogo from '../assets/amazon.png'
+import echo3dLogo from '../assets/echo3d.png'
+import mitLogo from '../assets/mit.png'
+import uncLogo from '../assets/unc.png'
+import cornellLogo from '../assets/cornell.png'
 
-const experiences = [
+const timeline = [
   {
-    type: 'work',
+    year: '2026',
+    role: 'Student Researcher',
+    org: 'Cornell ORIE Department - Professor Ziv Scully',
+    period: 'Jan 2026 – Present · Ithaca, NY',
+    desc: 'Developing a scheduling framework that simulates and optimizes job progression under time constraints using priority-based policies and efficient search techniques. Researching trade-offs between fairness and efficiency in dynamic priority systems under constrained resources.',
+    tags: ['Python', 'Scheduling Algorithms', 'Priority Systems', 'Research'],
+    color: '#b31b1b',
+    logo: cornellLogo,
+    type: 'Research',
+  },
+  {
+    year: '2026',
+    role: 'Software Engineering Intern',
+    org: 'Google — GCloud Apps Team',
+    period: 'Summer 2026',
+    desc: 'Incoming software engineering intern on the Google Cloud Apps team.',
+    tags: ['Google Cloud', 'GCP', 'Software Engineering'],
+    color: '#4285f4',
+    logo: googleLogo,
+    type: 'Internship',
+  },
+  {
+    year: '2025',
     role: 'Software Development Intern',
     org: 'Amazon',
-    period: 'Jun 2025 – Aug 2025',
-    location: 'Seattle, WA',
-    description: 'Developed a full-stack Console providing users an end-to-end solution for querying and editing report data. Built infrastructure using RESTful APIs, AWS services, and cloud technologies.',
+    period: 'Jun – Aug 2025 · Seattle, WA',
+    desc: 'Built a full-stack Console providing an end-to-end solution for querying and editing report data using RESTful APIs and AWS cloud services.',
     tags: ['AWS', 'RESTful APIs', 'Full-Stack', 'Cloud'],
     color: '#f90',
+    logo: amazonLogo,
+    type: 'Internship',
   },
   {
-    type: 'work',
+    year: '2024',
     role: 'Software Development Intern',
     org: 'Echo3D',
-    period: 'Jun 2024 – Aug 2024',
-    location: 'Remote',
-    description: 'Created an iOS AR/VR application using SwiftUI for virtual try-on functionality. Enhanced website features resulting in 23% more engagement.',
+    period: 'Jun – Aug 2024 · Remote',
+    desc: 'Created an iOS AR/VR virtual try-on application using SwiftUI. Enhanced website features resulting in 23% more engagement.',
     tags: ['SwiftUI', 'AR/VR', 'iOS', 'Echo3D API'],
     color: '#7c3aed',
+    logo: echo3dLogo,
+    type: 'Internship',
   },
   {
-    type: 'work',
+    year: '2023',
     role: 'ML Researcher',
     org: 'MIT Beaver Works — Medlytics',
-    period: 'Jul 2023 – Aug 2023',
-    location: 'Cambridge, MA',
-    description: 'Developed a machine learning model to detect dyslexia from handwriting images, achieving 89.4% validation accuracy. Awarded Best Team Initiative.',
+    period: 'Jul – Aug 2023 · Cambridge, MA',
+    desc: 'Developed a machine learning model to detect dyslexia from handwriting images, achieving 89.4% validation accuracy. Awarded Best Team Initiative.',
     tags: ['Machine Learning', 'Computer Vision', 'Python'],
     color: '#06b6d4',
+    logo: mitLogo,
+    type: 'Research',
+    badge: '🏆 Best Team Initiative',
   },
   {
-    type: 'work',
+    year: '2022',
     role: 'Undergraduate Researcher',
-    org: 'Gene Therapy Center, UNC Chapel Hill',
-    period: 'Aug 2022 – Mar 2023',
-    location: 'Chapel Hill, NC',
-    description: 'Researched hemophilia treatment through Factor-VIII gene expression analysis. Gained expertise in gel electrophoresis and cellular cloning.',
-    tags: ['Bioengineering', 'Gene Therapy', 'Research'],
+    org: 'UNC Gene Therapy Center',
+    period: 'Aug 2022 – Mar 2023 · Chapel Hill, NC',
+    desc: 'Researched hemophilia treatment through Factor-VIII gene expression analysis. Gained expertise in gel electrophoresis and cellular cloning.',
+    tags: ['Gene Therapy', 'Bioengineering', 'Lab Research'],
     color: '#10b981',
+    logo: uncLogo,
+    type: 'Research',
   },
 ]
 
-const education = [
-  {
-    org: 'Cornell University',
-    degree: 'BS in Computer Science, Minor in AI & Business',
-    period: 'Aug 2023 – May 2027',
-    details: 'Relevant Coursework: Analysis of Algorithms (CS 4820), Data Structures & Functional Programming (CS 3110), Introduction to Machine Learning (CS 3780)',
-    tags: ['CS', 'AI', 'Business'],
-  },
-  {
-    org: 'NC School of Science and Math',
-    degree: 'High School Diploma',
-    period: 'Aug 2021 – May 2023',
-    details: 'Technical focus in programming, mathematics, and data science. Published research in The American Math Monthly.',
-    tags: ['Math', 'Research', 'Data Science'],
-  },
-]
-
-const extracurriculars = [
-  { title: 'VP of New Member Education', org: 'Kappa Theta Pi', icon: '🔑' },
-  { title: 'Object Detection Researcher', org: 'Cornell Nexus (YOLOv8 & ROS)', icon: '🤖' },
-  { title: 'Sentiment Analysis', org: 'Cornell Data Journal', icon: '📊' },
-  { title: 'Teaching Assistant', org: 'Cornell Math Department', icon: '📐' },
-]
+const typeColor = {
+  Internship: { bg: 'rgba(29,185,84,0.12)',  text: '#1DB954' },
+  Research:   { bg: 'rgba(6,182,212,0.12)',   text: '#22d3ee' },
+}
 
 export default function Experience() {
   return (
-    <section id="experience" className={styles.section}>
-      <div className="container">
-        <div className={styles.header}>
-          <p className="section-label">Experience & Education</p>
-          <h2 className="section-title">My journey so far</h2>
-        </div>
+    <section id="experience" className="sp-section">
+      <div className="sp-section-header">
+        <h2 className="sp-section-title">Experience</h2>
+      </div>
 
-        <div className={styles.layout}>
-          <div>
-            <h3 className={styles.subheading}>Work Experience</h3>
-            <div className={styles.timeline}>
-              {experiences.map((exp, i) => (
-                <div key={i} className={styles.item}>
-                  <div className={styles.dot} style={{ background: exp.color }} />
-                  <div className={styles.card}>
-                    <div className={styles.meta}>
-                      <span className={styles.period}>{exp.period}</span>
-                      <span className={styles.location}>{exp.location}</span>
-                    </div>
-                    <h4 className={styles.role}>{exp.role}</h4>
-                    <p className={styles.org}>{exp.org}</p>
-                    <p className={styles.desc}>{exp.description}</p>
-                    <div className={styles.tags}>
-                      {exp.tags.map((t) => (
-                        <span key={t} className="tag">{t}</span>
-                      ))}
-                    </div>
-                  </div>
+      <div className={styles.timeline}>
+        {timeline.map((item, i) => (
+          <div key={i} className={styles.item}>
+            <div className={styles.left}>
+              <div className={styles.year}>{item.year}</div>
+              <div className={styles.line} style={{ background: i === timeline.length - 1 ? 'transparent' : undefined }} />
+            </div>
+
+            <div className={styles.dotWrap}>
+              <div className={styles.dot} style={{ background: item.color, boxShadow: `0 0 0 3px ${item.color}30` }} />
+            </div>
+
+            <div className={styles.card}>
+              <div className={styles.cardTop}>
+                <div className={styles.artSmall} style={{ background: `linear-gradient(135deg, ${item.color}22, ${item.color}08)` }}>
+                  <img src={item.logo} alt={item.org} className={styles.logo} />
                 </div>
-              ))}
+                <div className={styles.cardMeta}>
+                  <div className={styles.typeRow}>
+                    <span className={styles.typeBadge} style={{ background: typeColor[item.type].bg, color: typeColor[item.type].text }}>
+                      {item.type}
+                    </span>
+                    {item.badge && <span className="sp-tag" style={{ background: 'rgba(255,255,255,0.07)' }}>{item.badge}</span>}
+                  </div>
+                  <div className={styles.role}>{item.role}</div>
+                  <div className={styles.org} style={{ color: item.color }}>{item.org}</div>
+                  <div className={styles.period}>{item.period}</div>
+                </div>
+              </div>
+              <p className={styles.desc}>{item.desc}</p>
+              <div className={styles.tags}>
+                {item.tags.map((t) => <span key={t} className="sp-tag">{t}</span>)}
+              </div>
             </div>
           </div>
-
-          <div>
-            <h3 className={styles.subheading}>Education</h3>
-            <div className={styles.timeline}>
-              {education.map((edu, i) => (
-                <div key={i} className={styles.item}>
-                  <div className={styles.dot} style={{ background: '#7c3aed' }} />
-                  <div className={styles.card}>
-                    <span className={styles.period}>{edu.period}</span>
-                    <h4 className={styles.role}>{edu.org}</h4>
-                    <p className={styles.org}>{edu.degree}</p>
-                    <p className={styles.desc}>{edu.details}</p>
-                    <div className={styles.tags}>
-                      {edu.tags.map((t) => (
-                        <span key={t} className="tag teal">{t}</span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <h3 className={`${styles.subheading} ${styles.subheadingMargin}`}>Extracurriculars</h3>
-            <div className={styles.extraGrid}>
-              {extracurriculars.map((e) => (
-                <div key={e.title} className={styles.extraCard}>
-                  <span className={styles.extraIcon}>{e.icon}</span>
-                  <div>
-                    <p className={styles.extraTitle}>{e.title}</p>
-                    <p className={styles.extraOrg}>{e.org}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   )
