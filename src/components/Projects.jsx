@@ -2,7 +2,7 @@ import { useState } from 'react'
 import styles from './Projects.module.css'
 import ProjectModal from './ProjectModal'
 
-import startupMatch from '../assets/portfolio/startupmatch.png'
+import startupMatch from '../assets/portfolio/startupMatch.png'
 import seniorsurf from '../assets/portfolio/seniorsurf.png'
 import culearn from '../assets/portfolio/CULearn.png'
 import shemoney from '../assets/portfolio/sheMoney.png'
