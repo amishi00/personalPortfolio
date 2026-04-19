@@ -82,15 +82,20 @@ export default function Skills() {
                 onClick={() => setActiveIdx(isActive ? null : i)}
               >
                 <td className={styles.tdNum}>
-                  {lit ? (
-                    <button className={styles.rowPlay} aria-label="Play">
-                      {isActive
-                        ? <SoundBar proficiency={t.proficiency} lit={true} />
-                        : <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
-                      }
+                  {isHovered ? (
+                    <button className={styles.rowPlay} aria-label={isActive ? 'Pause' : 'Play'}>
+                      {isActive ? (
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                          <rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>
+                        </svg>
+                      ) : (
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                          <polygon points="5,3 19,12 5,21"/>
+                        </svg>
+                      )}
                     </button>
                   ) : (
-                    <span className={styles.num}>{t.num}</span>
+                    <span className={`${styles.num} ${isActive ? styles.numGreen : ''}`}>{t.num}</span>
                   )}
                 </td>
 

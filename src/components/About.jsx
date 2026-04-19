@@ -23,30 +23,28 @@ export default function About() {
         <div className={styles.body}>
           <div className={styles.listeners}>
             {/* <span className={styles.num}>10+</span>
-            <span className={styles.numLabel}>projects shipped</span>
+            <span className={styles.numLabel}>Developer</span>
             <span className={styles.sep}>·</span>
             <span className={styles.num}>2</span>
-            <span className={styles.numLabel}>internships</span>
+            <span className={styles.numLabel}>Explorer</span>
             <span className={styles.sep}>·</span>
             <span className={styles.num}>2</span>
-            <span className={styles.numLabel}>research papers</span> */}
+            <span className={styles.numLabel}>Analyst</span> */}
           </div>
 
           <p className={styles.bio}>
-            I'm a Computer Science student at Cornell University trying to understand and create new things 
-
-
-
-            I'm a Computer Science student at Cornell University (BS '27) with a minor in AI & Business,
-            driven by a passion to build software that solves real problems. From detecting dyslexia with
-            ML to building full-stack AWS consoles at Amazon, I thrive at the intersection of
-            technology and human impact.
+            I’m a Computer Science student at Cornell University with a strong interest in AI, full-stack engineering, and the intersection of 
+            technology and biology for real-world impact. I am graduating in December 2026 and am looking for full-time jobs, especially pertaining to SWE/ML roles at 
+            health-tech companies. If you or someone you know think I could be a good fit, feel free to contact me at ag2424@cornell.edu - I promise to get back to you.
+            Feel free to explore my experience section for internships I’ve worked on and my projects section for some of the things I’ve been building recently.
           </p>
 
           <p className={styles.bio}>
-            My work spans healthcare, sustainability, fintech, and AR/VR - I love exploring unexpected
-            places where code can make a difference. When I'm not shipping, I'm teaching math,
-            leading KTP, or publishing research in math journals.
+            Outside of coding, I spend a lot of time learning new things, dancing with Cornell Nazaqat and 
+            exploring other styles. Lately, I’ve been obsessed with strawberry oatmilk iced matchas (see my Beli 
+            rankings @amishig), teaching as a Technology Educator for new members at KTP, and reading (currently on some
+            soul-opening books by Khaled Hosseini). As someone about to graduate college, I've developed a knack for going on side-quests with friends
+            such as sailing, learning how to write Luwein Hieroglyphics, or travelling across the country for spontaneous trips.
           </p>
 
           {/* <div className={styles.extrasTitle}>On Stage & Off</div>
@@ -59,8 +57,8 @@ export default function About() {
                   <div className={styles.extraOrg}>{e.org}</div>
                 </div>
               </div>
-            ))} */}
-          {/* </div> */}
+            ))}
+          </div> */}
         </div>
       </div>
     </section>
