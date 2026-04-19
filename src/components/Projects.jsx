@@ -124,7 +124,7 @@ const research = [
     link: 'https://drive.google.com/file/d/1rhnJsmX_MwrULcICBR26ZmtoWVvSAJ6B/view',
     linkLabel: 'View Paper',
     sub: 'Published · The American Math Monthly',
-    badge: '3rd Place NCSEF',
+    badge: '🏆 3rd Place NCSEF',
   },
 ]
 

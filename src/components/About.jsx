@@ -33,6 +33,10 @@ export default function About() {
           </div>
 
           <p className={styles.bio}>
+            I'm a Computer Science student at Cornell University trying to understand and create new things 
+
+
+
             I'm a Computer Science student at Cornell University (BS '27) with a minor in AI & Business,
             driven by a passion to build software that solves real problems. From detecting dyslexia with
             ML to building full-stack AWS consoles at Amazon, I thrive at the intersection of
