@@ -40,7 +40,7 @@ export default function About() {
           </p>
 
           <p className={styles.bio}>
-            My work spans healthcare, sustainability, fintech, and AR/VR — I love exploring unexpected
+            My work spans healthcare, sustainability, fintech, and AR/VR - I love exploring unexpected
             places where code can make a difference. When I'm not shipping, I'm teaching math,
             leading KTP, or publishing research in math journals.
           </p>

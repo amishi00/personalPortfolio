@@ -21,7 +21,7 @@ const timeline = [
   {
     year: '2026',
     role: 'Software Engineering Intern',
-    org: 'Google — GCloud Apps Team',
+    org: 'Google - GCloud Apps Team',
     period: 'Summer 2026',
     desc: 'Incoming software engineering intern on the Google Cloud Apps team.',
     tags: ['Google Cloud', 'GCP', 'Software Engineering'],
@@ -54,7 +54,7 @@ const timeline = [
   {
     year: '2023',
     role: 'ML Researcher',
-    org: 'MIT Beaver Works — Medlytics',
+    org: 'MIT Beaver Works - Medlytics',
     period: 'Jul – Aug 2023 · Cambridge, MA',
     desc: 'Developed a machine learning model to detect dyslexia from handwriting images, achieving 89.4% validation accuracy. Awarded Best Team Initiative.',
     tags: ['Machine Learning', 'Computer Vision', 'Python'],

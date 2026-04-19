@@ -42,10 +42,18 @@
   font-weight: 700;
   color: var(--sp-subtext);
   transition: color var(--tr), background var(--tr);
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
 }
 .navItem:hover {
   color: var(--sp-text);
   background: rgba(255, 255, 255, 0.05);
+}
+.navItemActive {
+  color: var(--sp-text) !important;
 }
 
 .navIcon {
@@ -127,4 +135,30 @@
 .libSub {
   font-size: 0.75rem;
   color: var(--sp-subtext);
+}
+
+.copyBtn {
+  margin-left: auto;
+  flex-shrink: 0;
+  background: rgba(255,255,255,0.08);
+  border: none;
+  border-radius: 4px;
+  color: var(--sp-subtext);
+  cursor: pointer;
+  padding: 4px 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--tr), color var(--tr);
+  opacity: 0;
+}
+.libItem:hover .copyBtn { opacity: 1; }
+.copyBtn:hover { background: rgba(255,255,255,0.14); color: var(--sp-text); }
+.copyBtnDone { color: var(--sp-green) !important; opacity: 1 !important; background: rgba(29,185,84,0.15) !important; }
+
+/* Logo as button */
+.logo {
+  background: none;
+  border: none;
+  cursor: pointer;
 }

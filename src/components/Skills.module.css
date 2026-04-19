@@ -123,13 +123,45 @@
   transition: background var(--tr);
 }
 
-/* Duration */
-.tdDuration {
-  padding: 10px 16px;
+/* Proficiency sound bar column */
+.thProf {
+  width: 200px;
   text-align: right;
-  font-size: 0.82rem;
-  color: var(--sp-subtext);
-  font-variant-numeric: tabular-nums;
+  padding-right: 16px;
+}
+
+.tdProf {
+  padding: 6px 16px;
+  text-align: right;
+  width: 200px;
+}
+
+.soundBar {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 36px;
+  justify-content: flex-end;
+}
+
+.soundSegment {
+  width: 3px;
+  min-height: 2px;
+  border-radius: 2px;
+  background: var(--sp-muted);
+  flex-shrink: 0;
+  transition: background 0.2s ease, height 0.3s ease;
+}
+
+.soundSegmentLit {
+  background: var(--sp-green);
+  animation: eqBounce var(--dur) ease-in-out infinite alternate;
+  animation-delay: var(--delay);
+}
+
+@keyframes eqBounce {
+  from { height: 2px; }
+  to   { height: var(--max-h); }
 }
 
 /* Visualizer */

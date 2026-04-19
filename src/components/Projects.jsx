@@ -16,6 +16,16 @@ import triples from '../assets/portfolio/exploringtriples.png'
 
 const projects = [
   {
+    title: 'StartupMatch',
+    category: 'Information Retrieval · Full-Stack',
+    desc: 'An information retrieval system that helps students find early-stage startups whose hiring needs match their technical skills and interests. Users submit free-form skill queries or upload resume skills, and the system returns a ranked list of YC-backed, Series A, or Series B startups. Aggregates startup data from multiple sources into one searchable platform, reducing the need to manually browse job boards. Uses SVD and TF-IDF for retrieval and RAG (LLMs) to suggest startups based on user queries.',
+    tags: ['Python', 'SVD', 'TF-IDF', 'RAG', 'LLMs', 'Information Retrieval', 'React', 'Flask'],
+    img: null,
+    emoji: '🚀',
+    color: '#6366f1',
+    link: 'https://github.com/wsonja/Startup-Match',
+  },
+  {
     title: 'SeniorSurf',
     category: 'AI · Web Extension',
     desc: 'A Chrome extension that helps elderly users navigate websites using Gemini AI. Uses DOM manipulation to simplify and explain web content in real time. Presented at HackMIT 2024.',
@@ -91,16 +101,6 @@ const projects = [
     link: 'https://github.com/amishi00',
     badge: '89.4% Accuracy',
   },
-  {
-    title: 'StartupMatch',
-    category: 'Information Retrieval · Full-Stack',
-    desc: 'An information retrieval system that helps students find early-stage startups whose hiring needs match their technical skills and interests. Users submit free-form skill queries or upload resume skills, and the system returns a ranked list of YC-backed, Series A, or Series B startups. Aggregates startup data from multiple sources into one searchable platform, reducing the need to manually browse job boards. Uses SVD and TF-IDF for retrieval and RAG (LLMs) to suggest startups based on user queries.',
-    tags: ['Python', 'SVD', 'TF-IDF', 'RAG', 'LLMs', 'Information Retrieval', 'React', 'Flask'],
-    img: null,
-    emoji: '🚀',
-    color: '#6366f1',
-    link: 'https://github.com/wsonja/Startup-Match',
-  },
 ]
 
 const research = [
@@ -168,11 +168,11 @@ export default function Projects() {
           <button key={r.title} className={`sp-card ${styles.researchCard}`} onClick={() => setSelected(r)}>
             <div className={styles.researchArt}>
               <img src={r.img} alt={r.title} className={styles.artImg} />
+              {r.badge && <div className={styles.artBadge}>{r.badge}</div>}
             </div>
             <div className={styles.researchText}>
               <div className="sp-card-title">{r.title}</div>
               <div className="sp-card-sub">{r.sub}</div>
-              {r.badge && <span className="sp-tag" style={{ marginTop: 8, display: 'inline-flex', background: 'rgba(29,185,84,0.12)', color: 'var(--sp-green)' }}>{r.badge}</span>}
             </div>
           </button>
         ))}

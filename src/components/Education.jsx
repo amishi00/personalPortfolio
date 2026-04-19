@@ -27,6 +27,7 @@ const schools = [
     location: 'Durham, NC',
     color: '#3b82f6',
     logo: ncssmLogo,
+    coursesLabel: 'Activities',
     courses: ['NCSSM Summer Research in Math', 'NCSSM Engineering Department - Robotics TA', 'Technology Student Association (TSA)', 'NCSSM Natyam Dance Club - Captain'],
     activities: [
       { label: '1st Place Unihacks - Mental Health Track' },
@@ -64,7 +65,7 @@ export default function Education() {
 
             <div className={styles.bottom}>
               <div className={styles.col}>
-                <p className={styles.colTitle}>Relevant Coursework</p>
+                <p className={styles.colTitle}>{s.coursesLabel ?? 'Relevant Coursework'}</p>
                 <ul className={styles.list}>
                   {s.courses.map((c) => <li key={c}>{c}</li>)}
                 </ul>
