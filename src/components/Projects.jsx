@@ -2,6 +2,7 @@ import { useState } from 'react'
 import styles from './Projects.module.css'
 import ProjectModal from './ProjectModal'
 
+import startupMatch from '../assets/portfolio/startupmatch.png'
 import seniorsurf from '../assets/portfolio/seniorsurf.png'
 import culearn from '../assets/portfolio/CULearn.png'
 import shemoney from '../assets/portfolio/sheMoney.png'
@@ -20,7 +21,7 @@ const projects = [
     category: 'Information Retrieval · Full-Stack',
     desc: 'An information retrieval system that helps students find early-stage startups whose hiring needs match their technical skills and interests. Users submit free-form skill queries or upload resume skills, and the system returns a ranked list of YC-backed, Series A, or Series B startups. Aggregates startup data from multiple sources into one searchable platform, reducing the need to manually browse job boards. Uses SVD and TF-IDF for retrieval and RAG (LLMs) to suggest startups based on user queries.',
     tags: ['Python', 'SVD', 'TF-IDF', 'RAG', 'LLMs', 'Information Retrieval', 'React', 'Flask'],
-    img: null,
+    img: startupMatch,
     emoji: '🚀',
     color: '#6366f1',
     link: 'https://github.com/wsonja/Startup-Match',
