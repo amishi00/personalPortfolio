@@ -84,7 +84,7 @@ export default function Contact() {
       </div>
 
       <div className={styles.cta}>
-        <p className={styles.ctaText}>Open to internships & full-time roles starting 2027</p>
+        <p className={styles.ctaText}>Open to internships & full-time roles starting December 2026</p>
         <a href="mailto:ag2424@cornell.edu" className="sp-btn sp-btn-green">
           Say Hello
         </a>
