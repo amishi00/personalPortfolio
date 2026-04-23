@@ -6,7 +6,7 @@ import sailing from '../assets/gallery/sailing.jpg'
 import books   from '../assets/gallery/books.jpg'
 import food    from '../assets/gallery/food.jpg'
 import sunset  from '../assets/gallery/sunset.jpg'
-import ktp from '../assets/gallery/nme.jpg'
+import ktp from '../assets/gallery/nme.png'
 
 const photos = [dance, ktp, sailing, books, food, sunset]
 const INTERVAL = 3500
