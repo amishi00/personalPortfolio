@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { Analytics } from "@vercel/analytics/next"
 import './App.css'
 import Sidebar from './components/Sidebar'
 import Player from './components/Player'
