@@ -15,24 +15,26 @@ export default function About() {
   const [current, setCurrent] = useState(0)
   const [fading,  setFading]  = useState(false)
 
+  const advance = (getNext) => {
+    setFading(true)
+    setTimeout(() => {
+      setCurrent(getNext)
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => setFading(false))
+      })
+    }, 400)
+  }
+
   useEffect(() => {
     const timer = setInterval(() => {
-      setFading(true)
-      setTimeout(() => {
-        setCurrent(c => (c + 1) % photos.length)
-        setFading(false)
-      }, 400)
+      advance(c => (c + 1) % photos.length)
     }, INTERVAL)
     return () => clearInterval(timer)
   }, [])
 
   const goTo = (idx) => {
     if (idx === current) return
-    setFading(true)
-    setTimeout(() => {
-      setCurrent(idx)
-      setFading(false)
-    }, 400)
+    advance(() => idx)
   }
 
   return (
